@@ -6,7 +6,7 @@
 /*   By: afeuerst <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 11:39:43 by afeuerst          #+#    #+#             */
-/*   Updated: 2017/05/30 15:00:53 by afeuerst         ###   ########.fr       */
+/*   Updated: 2017/06/04 18:07:15 by afeuerst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@
 #  define bool int
 # endif
 
+# define SWIDTH 1000
+# define SHEIGHT 1000
+# define PIXEL(r, g, b) (int)(b | (g << 8) | (r << 16))
+
 typedef struct		s_class
 {
 	size_t			size;
@@ -38,9 +42,12 @@ typedef struct		s_class
 typedef struct		s_wireframe
 {
 	const void		*self;
+	void			*mlx;
+	void			*win;
 	int				*array;
-	int				array_x;
-	int				array_y;
+	int				size_line;
+	int				endian;
+	int				pixel_len;
 }					t_wireframe;
 
 void				*wf_ctor(const void *const self, ...);

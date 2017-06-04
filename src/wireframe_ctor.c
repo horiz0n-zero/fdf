@@ -6,7 +6,7 @@
 /*   By: afeuerst <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:43:05 by afeuerst          #+#    #+#             */
-/*   Updated: 2017/05/30 15:12:48 by afeuerst         ###   ########.fr       */
+/*   Updated: 2017/06/04 17:38:50 by afeuerst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void			*wf_ctor(const void *const self, ...)
 		return (NULL);
 	new->self = self;
 	ft_fill_array(new, va_arg(args, char*));
+	new->mlx = va_arg(args, void*);
+	new->win = va_arg(args, void*);
 	va_end(args);
 	return (new);
 }
